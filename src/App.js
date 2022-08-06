@@ -1,5 +1,5 @@
-import "./App.css";
 import Deso from "deso-protocol";
+import { Button } from 'react-bootstrap';
 import { useState } from "react";
 const deso = new Deso();
 function App() {
@@ -8,7 +8,7 @@ function App() {
   const [postResponse, setPostResponse] = useState();
   return (
     <div>
-      <button
+      <Button
         onClick={async () => {
           const user = await deso.identity.login();
           console.log(user);
@@ -16,15 +16,15 @@ function App() {
         }}
       >
         login
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => {
           deso.identity.logout(deso.identity.getUserKey());
         }}
       >
         logout
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={async () => {
           const user = await deso.user.getSingleProfile({
             PublicKeyBase58Check: deso.identity.getUserKey(),
@@ -34,8 +34,8 @@ function App() {
         }}
       >
         get user
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={async () => {
           const postResponse = await deso.posts.submitPost({
             UpdaterPublicKeyBase58Check: deso.identity.getUserKey(),
@@ -49,7 +49,7 @@ function App() {
         }}
       >
         submit post
-      </button>
+      </Button>
       <div>
         Login info
         <pre>{loginResponse}</pre>
