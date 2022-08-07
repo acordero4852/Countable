@@ -1,6 +1,13 @@
 import Deso from "deso-protocol";
 import { Button } from 'react-bootstrap';
 import { useState } from "react";
+import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/navbar/navbar";
+import ProfilePage from "./components/profile/ProfilePage";
+
 const deso = new Deso();
 function App() {
   const [sampleResponse, setSampleResponse] = useState();
@@ -63,6 +70,9 @@ function App() {
         User info
         <pre>{postResponse}</pre>
       </div>
+
+      <ProfilePage />
+      
     </div>
   );
 }
